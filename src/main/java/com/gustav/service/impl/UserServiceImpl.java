@@ -3,15 +3,14 @@ package com.gustav.service.impl;
 import com.gustav.dao.UserDao;
 import com.gustav.entity.UserDTO;
 import com.gustav.service.UserService;
-import org.springframework.stereotype.Service;
-
+import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 import java.util.List;
 
 /**
  * Created by gustav on 2017/8/5.
  */
-@Service
+@Component
 public class UserServiceImpl implements UserService{
 
     @Resource
