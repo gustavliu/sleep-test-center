@@ -1,5 +1,6 @@
 package com.gustav.tcp;
 
+import com.gustav.controller.WebsocketController;
 import com.gustav.entity.UserDTO;
 import com.gustav.enums.UserSexEnum;
 import com.gustav.mapper.UserMapper;
@@ -25,6 +26,9 @@ public class ServerHandler extends ChannelInboundHandlerAdapter {
     @Autowired
     UserService userService;
 
+    @Autowired
+    WebsocketController controller;
+
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
@@ -35,6 +39,7 @@ public class ServerHandler extends ChannelInboundHandlerAdapter {
         userDTO.setUserName("fwef");
         userDTO.setUserSex(UserSexEnum.MAN);
         userService.insert(userDTO);
+        controller.post();
     }
 
     @Override
